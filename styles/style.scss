@@ -1,0 +1,3085 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@mixin adaptive($screen) {
+    @if $screen == small {
+        @media(max-width: 450px) {@content};
+    } @if $screen == small2 { 
+        @media(min-width: 451px ) and (max-width: 570px) {@content};
+    } @if $screen == medium1 { 
+        @media(min-width: 571px ) and (max-width: 767px) {@content};
+    } @if $screen == medium2 { 
+        @media(min-width: 768px) and (max-width: 990px) {@content};
+    } @if $screen == large1 { 
+        @media(min-width: 991px) and (max-width: 1024px) {@content};
+    } @if $screen == large2 { 
+        @media(min-width: 1025px) and (max-width: 1200px) {@content};
+    }
+
+}
+
+@mixin colorWhite {
+    color: white;
+}
+
+@mixin colorBlue {
+    color: #3eb0f7;
+}
+
+@mixin textStyle {
+    color: #777;
+}
+
+@mixin bgrBlue {
+    background-color: #3eb0f7;
+}
+
+@mixin bgrBlueDarker {
+    background-color: #1f96e0;
+}
+
+
+@mixin buttonBlue {
+    font-size: 17px;
+    text-decoration: none; 
+    border: 2px solid #3eb0f7;
+    padding: 15px 35px;
+    border-radius: 100px;
+    font-weight: 700;
+}
+
+@mixin buttonRect {
+    background: #3eb0f7;
+    color: white;
+    text-decoration: none;
+    padding: 20px 50px;
+    border-radius: 4px;
+}
+
+@mixin blogPrice {
+    color: #d1d1d1;
+}
+
+body {
+    position: relative;
+}
+
+header {
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: url(../img/bg.jpg) center center / cover no-repeat;
+    overflow: hidden;
+}
+
+.header-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.header-blockleft .logo-img {
+    margin: 100px 0 5px 0;
+    width: 211px;
+    height: 37px;
+    position: relative;
+    transition: all 1.2s linear;
+    top: -50px;
+    opacity: 0;
+    @include adaptive(medium1) {
+        margin-top: 20px;
+    }
+    @include adaptive(small2) {
+        margin-top: 20px;
+    }
+    @include adaptive(small) {
+        margin-top: 15px;
+    }
+}
+
+.header-blockleft .logo-img.active {
+    transform: translateY(50px);
+    opacity: 1;
+}
+
+.header-block {
+    display: flex; 
+    justify-content: space-between;
+    max-width: 1170px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: white;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 970px;
+    }
+    @include adaptive(large1) {
+        max-width: 960px;
+        margin-bottom: 100px;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+        flex-direction: column;
+    }
+    @include adaptive(medium1) {
+        max-width: 750px;
+        flex-direction: column;
+    }
+    @include adaptive(small2) {
+        max-width: 750px;
+        flex-direction: column;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        flex-direction: column;
+    }
+}
+
+.header-blockleft {
+    width: 57%;
+    box-sizing: border-box;
+    margin: 0 15px 110px 15px;
+    position: relative;
+    @include adaptive(large2) {
+        width: 56%;
+    }
+    @include adaptive(large1) {
+        width: 56%; 
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+        margin-left: 0;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+        padding-right: 15px;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+        padding-right: 15px;
+    }
+    @include adaptive(small) {
+        width: 100%;
+    }
+}
+
+h1 {
+    font-size: 56px;
+    font-weight: 400;
+    max-width: 700px;
+    color: white;
+    text-shadow: 0px 0px 12px black;
+    top: 30px;
+    line-height: 1.2;
+    position: relative;
+    transition: all 1.2s ease-out;
+    left: -500px;
+    opacity: 0;
+    @include adaptive(large1) {
+        max-width: 700px;
+        padding-top: 20px;
+        font-size: 50px; 
+    }
+    @include adaptive(medium2) {
+        max-width: 700px;
+        margin-top: 20px;
+        font-size: 48px; 
+        line-height: 1.5;
+    }
+    @include adaptive(medium1) {
+        max-width: 700px;
+        font-size: 44px;
+        line-height: 1.5;
+        top: 20px;
+    }
+    @include adaptive(small2) {
+        max-width: 700px;
+        font-size: 44px;
+        line-height: 1.5;
+        top: 20px;
+    }
+    @include adaptive(small) {
+        max-width: 400px;
+        font-size: 36px;
+        line-height: 1.3;
+        top: 10px;
+    }
+}
+
+h1.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.header-blockleft p {
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 300;
+    padding-right: 10px;
+    position: relative;
+    top: 215px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(large1) {
+        margin-top: 30px;
+        font-size: 15px;
+    }
+    @include adaptive(medium2) {
+        margin-top: 20px;
+        font-size: 14px;
+        line-height: 2;
+        padding-right: 17px;
+        font-weight: 400;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 2;
+        margin-top: -20px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 2;
+        margin-top: -20px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 2;
+        margin: -30px 20px 10px 0;
+    }
+}
+
+.header-blockleft p.active {
+    transform: translateY(-155px);
+    opacity: 1;
+}
+
+.header-blockleft-buttons {
+    position: relative;
+    top: 100px;  
+    left: -500px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(large1) {
+        top: 120px;
+    }
+    @include adaptive(medium2) {
+        top: 120px;
+    }
+    @include adaptive(medium1) {
+        top: 110px;
+    }
+    @include adaptive(small2) {
+        top: 110px;
+    }
+}
+
+.header-blockleft-buttons.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+
+.header-blockleft .about-us {
+    @include buttonBlue;
+    @include bgrBlue;
+    @include colorWhite;
+    margin-right: 10px;
+    transition: 0.5s all;
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+    }
+}
+
+.about-us:hover {
+    background: none;
+    @include colorBlue;
+}
+
+.header-blockleft .price {
+    @include buttonBlue;
+    @include colorBlue;
+    transition: 0.5s all;
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+    }
+}
+
+.header-blockleft .price:hover {
+    @include bgrBlue;
+    @include colorWhite;
+}
+
+
+// правая часть header. Форма обратной связи
+.header-blockright {
+    position: relative;
+    right: 0;
+    top: 500px;
+    opacity: 0;
+    width: 39%;
+    box-sizing: border-box;
+    margin: 150px 15px 100px 0;
+    background-color: rgba(128, 128, 128, 0.4);
+    border-radius: 4px;
+    transition: all 1.2s ease-out;
+    @include adaptive(large2) {
+        width: 39%;
+    }
+    @include adaptive(large1) {
+        top: 600px;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+        top: 600px;
+        box-sizing: border-box;
+        margin-bottom: 200px; 
+        margin: 150px 0 200px 0;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        left: 0;
+        right: 0;
+        margin: 90px auto;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        left: 0;
+        right: 0;
+        margin: 90px auto;
+    }   
+    @include adaptive(small) {
+        width: 93%;
+        left: 0;
+        right: 0;
+        margin: 80px auto;
+    }
+}
+
+.header-blockright.active {
+    transform: translateY(-500px);
+    opacity: 1;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 80px;
+    text-align: center;
+    @include adaptive(large2) {
+        line-height: 70px;
+    }
+    @include adaptive(large1) {
+        line-height: 70px;
+    }
+    @include adaptive(medium2) {
+        line-height: 70px;
+    }
+    @include adaptive(medium1) {
+        line-height: 70px;
+    }
+    @include adaptive(small2) {
+        line-height: 70px;
+    }
+    @include adaptive(small) {
+        line-height: 70px;
+    }
+}
+
+.form-header {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+[type] {
+    height: 55px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    @include adaptive(medium2) {
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        font-size: 16px;
+    }
+    @include adaptive(small2) {
+        font-size: 16px;
+    }
+    @include adaptive(small) {
+        font-size: 16px;
+    }
+}
+
+[type]:not([type="submit"]) {
+    border: solid 1px #dadada;
+    background-color: white;
+    padding-left: 15px;
+    color: #999;
+}
+
+[type="submit"] {
+    @include bgrBlue;
+    border: none;
+    color: white;
+    transition: 0.5s all;
+    @include adaptive(medium2) {
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        font-size: 16px;
+    }
+    @include adaptive(small2) {
+        font-size: 16px;
+    }    
+    @include adaptive(small) {
+        font-size: 16px;
+    }
+
+}
+
+[type="submit"]:hover {
+    @include bgrBlueDarker;
+}
+
+.header-blockright blockquote {
+    font-size: 13px;
+    line-height: 2;
+    text-align: center;
+    padding: 0 20px 10px 20px;
+    font-weight: 400;
+    @include adaptive(large1) {
+        max-width: 300px;
+        font-size: 11px;
+    }
+    @include adaptive(medium2) {
+        font-size: 11px;
+    }
+    @include adaptive(medium1) {
+        font-size: 11px;
+    }
+    @include adaptive(small2) {
+        font-size: 11px;
+    }
+    @include adaptive(small) {
+        font-size: 11px;
+        line-height: 2.5;
+        padding: 0 25px;
+        padding-bottom: 15px;
+    }
+}
+
+// стрелка НАВЕРХ внизу справа
+.arrow {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    right: 25px;
+    bottom: 25px;
+    position: fixed;
+    z-index: 25;
+    display: none;
+    @include adaptive(large2) {
+        right: 20px;
+        bottom: 20px;
+    }
+    @include adaptive(large1) {
+        right: 20px;
+        bottom: 20px;
+    }
+    @include adaptive(medium2) {
+        right: 20px;
+        bottom: 20px;
+    }
+    @include adaptive(medium1) {
+        right: 20px;
+        bottom: 20px;
+    }
+    @include adaptive(small2) {
+        right: 20px;
+        bottom: 20px;
+    }
+    @include adaptive(small) {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+.arrow-up {
+    position: relative;
+    background: url(../img/up-arrow-inside-circle.svg) center center / contain no-repeat;
+    padding: 13px;
+    top: 9px;
+    left: 7px;
+    transition: 1s all;
+}
+
+.arrow-up:hover {
+    background: url(../img/up-arrow-inside-circle1.svg) center center / contain no-repeat;
+    transition: 0.5s all;
+}
+
+
+
+// навигация сайта
+.nav {
+    width: 100%;
+    height: 50px;
+    box-shadow: 0 0 4px rgb(194, 193, 193);
+    z-index: 1000000;
+    background-color: white;
+    opacity: 0.8;
+    @include adaptive(medium2) {
+        height: 70px;  
+    }
+}
+
+.nav-width {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 7px; 
+    @include adaptive(large2) {
+        max-width: 920px;
+    }
+    @include adaptive(large1) {
+        max-width: 920px;
+    }
+    @include adaptive(medium2) {
+        max-width: 710px;
+        flex-direction: column;
+    }
+    @include adaptive(medium1) {
+        max-width: 740px;
+        position: relative;
+    }
+    @include adaptive(small2) {
+        max-width: 740px;
+        position: relative;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        position: relative;
+    }
+}
+
+.nav-width .logo {
+    background: url(../img/logo2.png) top left / contain no-repeat;
+    padding: 50px;
+    width: 10%;
+    @include adaptive(large2) {
+        width: 13%;
+    }
+    @include adaptive(large1) {
+        width: 12%;
+    }
+    @include adaptive(medium2) {
+        width: 115px;  
+    }
+    @include adaptive(medium1) {
+        width: 115px;
+        margin-left: 7px;
+    }
+    @include adaptive(small2) {
+        width: 115px;
+        margin-left: 7px;
+    }
+    @include adaptive(small) {
+        width: 115px;
+        margin-left: 7px;
+    }
+}
+
+.nav-btn {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    line-height: 2.2;
+    @include adaptive(large2) {
+        width: 70%;
+        line-height: 2.5;
+    }
+    @include adaptive(large1) {
+        width: 65%;
+        font-size: 14px;
+        line-height: 2.5;
+    }
+    @include adaptive(medium2) {
+        width: 86%;
+        margin-top: -70px;
+        line-height: 1.6;
+        font-size: 14px;
+        right: 0;
+        margin-left: auto;
+    }
+    @include adaptive(medium1) {
+        display: none;
+        background-color: white;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        border-top: #ddd solid 1px;
+        font-size: 14px;
+        padding: 10px 0 10px 15px;
+        line-height: 2.8;
+    }
+    @include adaptive(small2) {
+        display: none;
+        background-color: white;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        border-top: #ddd solid 1px;
+        font-size: 14px;
+        padding: 10px 0 10px 15px;
+        line-height: 2.8;
+    }
+    @include adaptive(small) {
+        display: none;
+        background-color: white;
+        left: 0;
+        right: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 100;
+        border-top: #ddd solid 1px;
+        font-size: 14px;
+        padding: 10px 0 10px 15px;
+        line-height: 2.8;
+    }
+}
+
+.nav-btn a {
+    @include adaptive(medium1) {
+        display: block;
+    }
+    @include adaptive(small2) {
+        display: block;
+    }
+    @include adaptive(small) {
+        display: block;
+    }
+}
+
+.nav-btn-drei {
+    display: none;     
+    height: 32px;
+    width: 42px;
+    border: 1px solid #ddd; 
+    border-radius: 4px; 
+    margin-right: 15px;
+    margin-top: 1px;
+    position: relative;
+    @include adaptive(medium1) {
+        display: inline-block;
+        cursor: pointer;
+    }
+    @include adaptive(small2) {
+        display: inline-block;
+        cursor: pointer;
+    }
+    @include adaptive(small) {
+        display: inline-block;
+        cursor: pointer;
+    }
+}
+
+.nav-btn-drei:hover {
+    background-color: #ddd;
+}
+
+.nav-btn-drei .btn-one {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 9px;
+    height: 2px;
+    width: 22px;
+    background-color: #888;
+}
+
+.nav-btn-drei .btn-two {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 13px;
+    height: 2px;
+    width: 22px;
+    background-color: #888;
+}
+
+.nav-btn-drei .btn-three {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 17px;
+    height: 2px;
+    width: 22px;
+    background-color: #888;
+}
+
+
+.nav-btn a {
+    text-decoration: none;
+    @include textStyle;
+    font-weight: 500;
+    transition: 0.5s all;
+}
+
+.nav-btn a:hover {
+    @include colorBlue;
+}
+
+.nav-btn a.active {
+    @include colorBlue;
+}
+
+
+// блог "Сделать сайт уникальным"
+#aboutus {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 1140px;
+    display: flex;
+    justify-content: space-between;
+    padding: 110px 0 80px 0;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 940px;
+    }
+    @include adaptive(large1) {
+        max-width: 940px;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+        flex-direction: column;
+        padding-top: 100px;
+    }
+    @include adaptive(medium1) {
+        max-width: 750px;
+        flex-direction: column;
+        padding: 80px 0 40px 0;
+    }
+    @include adaptive(small2) {
+        max-width: 570px;
+        flex-direction: column;
+        padding: 80px 0 40px 0;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        flex-direction: column;
+        padding: 70px 0 40px 0;
+    }
+}
+
+.unique-pic {
+    margin-top: 10px;
+    width: 49%;
+    position: relative;
+    left: -500px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium2) {
+        width: 100%;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        right: 0;
+        margin: 0 auto;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        right: 0;
+        margin: 0 auto;
+    }
+    @include adaptive(small) {
+        width: 93%;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
+.unique-pic.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.unique-pic img {
+    width: 550px;
+    @include adaptive(large2) {
+        width: 455px;
+    }
+    @include adaptive(large1) {
+        width: 455px;
+        margin-top: 100px;
+    }
+    @include adaptive(medium2) {
+        width: 720px;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+        margin-top: 40px;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+        margin-top: 40px;
+    }
+    @include adaptive(small) {
+        width: 100%;
+    }
+}
+
+.unique-txt {
+    width: 49%;
+    position: relative;
+    right: -500px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(large1) {
+        width: 49%;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+        text-align: left;
+        margin-top: 20px;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+    @include adaptive(small) {
+        width: 100%;
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+
+.unique-txt.active {
+    transform: translateX(-500px);
+    opacity: 1;
+}
+
+h2 {
+    @include textStyle;
+    line-height: 1.5;
+    font-size: 40px;
+    font-weight: 400;
+    padding-bottom: 15px;
+    @include adaptive(large1) {
+        line-height: 1.4;
+        font-size: 36px;
+    }
+    @include adaptive(medium2) {
+        font-size: 36px;
+    }
+    @include adaptive(medium1) {
+       font-size: 34px;
+       padding: 0 15px 15px 15px;
+    }
+    @include adaptive(small2) {
+        font-size: 34px;
+        padding: 0 15px 15px 15px;
+     }
+    @include adaptive(small) {
+       font-size: 34px; 
+       padding: 0 15px 15px 15px;
+    }
+}
+
+.unique-txt p {
+    @include textStyle;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        margin: 0 10px;
+        font-size: 13px;
+    }
+    @include adaptive(small2) {
+        margin: 0 10px;
+        font-size: 13px;
+    }
+    @include adaptive(small) {
+        margin: 0 15px;
+        font-size: 13px; 
+    }
+}
+
+.unique-txt a {
+    @include buttonBlue;
+    text-decoration: none;
+    @include colorBlue;
+    transition: 0.5s all;
+    @include adaptive(large2) {
+        line-height: 2.5;
+    }
+    @include adaptive(large1) {
+        line-height: 2.5;
+    }
+    @include adaptive(medium2) {
+        line-height: 2.5; 
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        line-height: 7;
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        line-height: 7;
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        line-height: 7;
+        font-size: 14px;
+    }
+}
+
+.unique-txt a:hover {
+    @include bgrBlue;
+    @include colorWhite;
+}
+
+
+
+// блог Превращаем невероятные идеи в реальность
+#realnost {
+    background: #f6f6f6;
+    width: 100%;
+}
+
+.ideas-width {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 110px 0 15px 0;
+    text-align: center;
+    @include adaptive(large2) {
+        max-width: 940px;
+    }
+    @include adaptive(large1) {
+        max-width: 940px;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+        padding-top: 100px;
+    }
+    @include adaptive(medium1) {
+        max-width: 750px;
+        padding: 60px 0;
+    }
+    @include adaptive(small2) {
+        max-width: 750px;
+        padding: 60px 0;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        padding: 60px 0;
+    }
+}
+
+.ideas-width h2 {
+    max-width: 1000px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    @include adaptive(large1) {
+        max-width: 850px;
+        font-size: 36px;
+    }
+    @include adaptive(medium2) {
+        line-height: 1.5;
+    }
+    @include adaptive(medium1) {
+        line-height: 1.7;
+    }
+    @include adaptive(small2) {
+        line-height: 1.7;
+    }
+    @include adaptive(small) {
+        line-height: 1.5;
+    }
+}
+
+.ideas-width p {
+    @include textStyle;
+    font-size: 18px;
+    font-weight: 400;
+    @include adaptive(medium2) {
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+    @include adaptive(small2) {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+        line-height: 1.9;
+    }
+}
+
+.ideas-width-par {
+    @include adaptive(medium2) {
+        margin: 0 15px;
+    }
+    @include adaptive(medium1) {
+        margin: 0 15px;
+    }
+    @include adaptive(small2) {
+        margin: 0 15px;
+    }
+    @include adaptive(small) {
+        margin: 0 30px;
+    }    
+}
+
+.ideas-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+    position: relative;
+    @include adaptive(medium2) {
+        margin-top: 30px;
+        flex-direction: column;
+    }
+    @include adaptive(medium1) {
+        margin-top: 30px;
+        flex-direction: column;
+    }
+    @include adaptive(small2) {
+        margin-top: 30px;
+        flex-direction: column;
+    }
+    @include adaptive(small) {
+        margin-top: 30px;
+        flex-direction: column;
+    }
+}
+
+.ideas-pic {
+    width: 30%;
+    position: relative;
+    left: -500px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium2) {
+        width: 100%;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+        right: 0;
+        margin: 0 auto;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+        right: 0;
+        margin: 0 auto;
+    }
+    @include adaptive(small) {
+        width: 93%;
+        right: 0;
+        margin: 0 auto;
+    }
+}
+
+.ideas-pic.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.ideas-pic img {
+    width: 360px;
+    @include adaptive(large2) {
+        max-width: 293px;
+    }
+    @include adaptive(large1) {
+        max-width: 293px;
+        margin-top: 30px;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+        margin-top: 70px;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+    }
+    @include adaptive(small) {
+        width: 100%;
+    }
+}
+
+.ideas-txt {
+    width: 65%;
+    padding-top: 10px;
+    margin-left: auto;
+    @include adaptive(large2) {
+        width: 64%;
+        padding-top: 5px;
+    }
+    @include adaptive(large1) {
+        width: 64%;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+        padding: 40px 15px 0 15px;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+        padding: 40px 15px 0 15px;
+    }
+    @include adaptive(small) {
+        width: 100%;
+        padding: 40px 15px 0 15px;
+    }
+}
+
+.ideas-block {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 20px;
+    @include adaptive(large1) {
+        margin-top: 0px;
+    }
+    @include adaptive(medium2) {
+        margin-top: -20px;
+    }
+    @include adaptive(medium1) {
+        flex-direction: column;
+        margin-top: -40px;
+    }
+    @include adaptive(small2) {
+        flex-direction: column;
+        margin-top: -40px;
+    }
+    @include adaptive(small) {
+        flex-direction: column;
+        margin-top: -40px;
+    }
+}
+
+.ideas-block:first-child {
+    margin-bottom: 40px;
+}
+
+.ideas-block .part {
+    width: 50%;
+    @include adaptive(medium2) {
+        margin-top: 20px;
+    }
+    @include adaptive(medium1) {
+        width: 83%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    @include adaptive(small2) {
+        width: 83%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    @include adaptive(small) {
+        width: 93%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}
+
+h4 {
+    text-align: left;
+    @include textStyle;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 2.3;
+    @include adaptive(large2) {
+        max-width: 200px;
+        line-height: 1.4;
+        padding: 10px 0;
+    }
+    @include adaptive(large1) {
+        line-height: 1.2;
+        padding: 10px 0;
+        font-size: 18px;
+    }
+    @include adaptive(medium2) {
+        font-size: 16px;
+        line-height: 2.7;
+    }
+    @include adaptive(medium1) {
+        font-size: 16px;
+        line-height: 2.7;
+        font-weight: 500;
+    }
+    @include adaptive(small2) {
+        font-size: 16px;
+        line-height: 2.7;
+        font-weight: 500;
+    }
+    @include adaptive(small) {
+        font-size: 16px;
+        line-height: 2.7;
+        font-weight: 500;
+    }
+}
+
+.ideas-block p {
+    font-size: 16px;
+    line-height: 28px;
+    padding-right: 20px;
+    @include adaptive(large1) {
+        font-size: 14px;
+    }
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        font-size: 13px;
+    }
+}
+
+.part {
+    display: flex;
+    justify-content: space-between;
+    transition: 0.5s all;
+    position: relative;
+    @include adaptive(medium2) {
+        padding-left:  10px;
+    }
+}
+
+.part-pic1 {
+    background: url(../img/book.svg) top center / contain no-repeat;
+    padding: 22px;
+    position: relative;
+    top: 70px;
+    opacity: 0;
+    left: 0;
+    transition: all 1.2s ease;
+}
+
+.part-pic1.active{
+    transform: translateY(-70px);
+    opacity: 1;
+}
+
+.ideas-block .part:hover .part-pic1 {
+    background: url(../img/book1.svg) top center / contain no-repeat;
+}
+
+.part-txt {
+    width: 80%;
+    margin-left: auto;
+    @include adaptive(large2) {
+        width: 81%;
+    }
+    @include adaptive(large1) {
+        width: 81%;
+    }
+    @include adaptive(medium2) {
+        width: 87%;
+        padding-left: 20px;
+    }
+    @include adaptive(medium1) {
+        width: 84%;
+    }
+    @include adaptive(small2) {
+        width: 84%;
+    }
+    @include adaptive(small) {
+        width: 83%;
+    }
+}
+
+.part-pic2 {
+    background: url(../img/money.svg) top center / contain no-repeat;
+    padding: 22px;
+    transition: 1.2s all ease;
+    transition-delay: 0.2s;
+    position: relative;
+    left: 0;
+    top: 70px;
+    opacity: 0;
+}
+
+.part-pic2.active {
+    transform: translateY(-70px);
+    opacity: 1;
+}
+
+.ideas-block .part:hover .part-pic2 {
+    background: url(../img/money1.svg) top center / contain no-repeat;
+}
+
+.part-pic3 {
+    background: url(../img/car.svg) top center / contain no-repeat;
+    padding: 22px;
+    transition: 1.2s all ease;
+    transition-delay: 0.4s;
+    position: relative;
+    left: 0;
+    top: 70px;
+    opacity: 0;
+}
+
+.part-pic3.active {
+    transform: translateY(-70px);
+    opacity: 1;
+}
+
+.ideas-block .part:hover .part-pic3 {
+    background: url(../img/car1.svg) top center / contain no-repeat;
+}
+
+.part-pic4 {
+    background: url(../img/people.svg) top center / contain no-repeat;
+    padding: 22px;
+    transition: 1.2s all ease;
+    transition-delay: 0.6s;
+    position: relative;
+    left: 0;
+    top: 70px;
+    opacity: 0;
+}
+
+.part-pic4.active {
+    transform: translateY(-70px);
+    opacity: 1;
+}
+
+.ideas-block .part:hover .part-pic4 {
+    background: url(../img/people1.svg) top center / contain no-repeat;
+}
+
+
+// блог качественный сайт в разумные сроки
+.delay {
+    left: 0;
+    right: 0;
+    margin: 110px auto;
+    max-width: 1140px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 940px;
+    }
+    @include adaptive(large1) {
+        max-width: 940px;
+        margin-bottom: 90px;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+        flex-direction: column;
+        text-align: left;
+    }
+    @include adaptive(medium1) {
+        max-width: 750px;
+        margin: 50px auto;
+        flex-direction: column;
+        text-align: center;
+    }
+    @include adaptive(small2) {
+        max-width: 750px;
+        margin: 50px auto;
+        flex-direction: column;
+        text-align: center;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        margin: 50px auto;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.delay-block {
+    position: relative;
+    left: -500px;
+    opacity: 0;
+    width: 47%;
+    transition: all 1.2s ease-out;
+    @include adaptive(large1) {
+        width: 49%;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+    @include adaptive(small) {
+        width: 93%;
+        right: 0;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.delay-block.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.delay-pic {
+    position: relative;
+    right: -500px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(large1) {
+        margin-top: 30px;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+        margin-top: 30px;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        margin: 30px auto 0 auto;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        margin: 30px auto 0 auto;
+    }
+    @include adaptive(small) {
+        width: 93%;
+        margin: 20px auto 0 auto;
+    }
+}
+
+.delay-pic.active {
+    transform: translateX(-500px);
+    opacity: 1;
+}
+
+.delay-pic img {
+    width: 555px;
+    @include adaptive(large2) {
+        max-width: 455px;
+    }
+    @include adaptive(large1) {
+        width: 455px;
+    }
+    @include adaptive(medium2) {
+        width: 100%;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+    }
+    @include adaptive(small) {
+        width: 100%;
+    }
+}
+
+.delay-block p {
+    font-size: 16px;
+    font-weight: 400;
+    @include textStyle;
+    line-height: 28px;
+    padding-bottom: 15px;
+    @include adaptive(large1) {
+        font-size: 14px;
+        padding: 5px 0 15px 0;
+    }
+    @include adaptive(medium2) {
+        font-size: 13px;
+    }
+    @include adaptive(medium1) {
+        font-size: 13px;
+    }
+    @include adaptive(small2) {
+        font-size: 13px;
+    }
+    @include adaptive(small) {
+        font-size: 13px;
+    }
+}
+
+.delay-block a {
+    @include buttonBlue;
+    @include colorBlue;
+    text-decoration: none;
+    line-height: 5;
+    transition: 0.5s all;
+    @include adaptive(large2) {
+        line-height: 4;
+    }
+    @include adaptive(large1) {
+        line-height: 4;
+    }
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+    }
+}
+
+.delay-block a:hover {
+    @include bgrBlue;
+    @include colorWhite;
+}
+
+
+
+// блог Хотите узнать, как развить свой бизнес?
+#business {
+    background: url(../img/bg.jpg) center center / cover no-repeat;
+    width: 100%;
+}
+
+.develop-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+.develop-width {
+    padding: 110px 0;
+    text-align: center;
+    position: relative;
+    @include adaptive(medium2) {
+        padding-bottom: 150px;
+    }
+    @include adaptive(medium1) {
+        padding-bottom: 150px;
+    }
+    @include adaptive(small2) {
+        padding-bottom: 150px;
+    }
+    @include adaptive(small) {
+        padding: 50px 0 80px 0;
+    }
+}
+
+
+.develop-width h2 {
+    @include colorWhite;
+    position: relative;
+    transition: all 1.2s ease-out;
+    max-width: 600px;
+    // left: 0;
+    right: -500px;
+    opacity: 0;
+    margin: 0 auto;
+    @include adaptive(large2) {
+        max-width: 600px;
+    }
+    @include adaptive(large1) {
+        max-width: 600px;
+    }
+    @include adaptive(medium2) {
+        max-width: 700px;
+    }
+    @include adaptive(medium1) {
+        max-width: 600px;
+    }
+    @include adaptive(small2) {
+        max-width: 600px;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        font-size: 28px;
+    }
+}
+
+.develop-width h2.active {
+    transform: translateX(-500px);
+    opacity: 1;
+}
+
+.develop-width p{
+    @include colorWhite;
+    line-height: 28px;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    top: 20px;
+    transition: all 1.2s ease-out;
+    max-width: 750px;
+    left: -500px;
+    opacity: 0;
+    right: 0;
+    margin: 0 auto;
+    @include adaptive(large2) {
+        max-width: 600px;
+    }
+    @include adaptive(large1) {
+        max-width: 600px;
+        font-size: 14px;
+    }
+    @include adaptive(medium2) {
+        max-width: 650px;
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        max-width: 600px;
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        max-width: 600px;
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        max-width: 350px;
+        font-size: 13px;
+        top: 0;
+    }
+}
+
+.develop-width p.active{
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.develop-button {
+    position: relative;
+    top: 20px;
+    left: -500px;
+    right: 0;
+    margin: 0 auto;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium2) {
+        top: 30px;
+    }
+    @include adaptive(medium1) {
+        top: 30px;
+    }
+    @include adaptive(small2) {
+        top: 30px;
+    }
+}
+
+.develop-button.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.develop-width a {
+    @include buttonRect;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 7;
+    transition: 0.5s all;
+    @include adaptive(medium2) {
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        font-size: 16px;
+    }
+    @include adaptive(small2) {
+        font-size: 16px;
+    }
+    @include adaptive(small) {
+        font-size: 16px;
+    }
+}
+
+.develop-width a:hover {
+    @include bgrBlueDarker;
+}
+
+
+// блог Стоимость
+#stoimost {
+    left: 0;
+    right: 0;
+    margin: 110px auto;
+    max-width: 1170px;
+    text-align: center;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 970px;
+    }
+    @include adaptive(large1) {
+        max-width: 970px;
+        margin: 90px auto;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+    }
+    @include adaptive(medium1) {
+        max-width: 750px;
+        margin-bottom: 60px;
+    }
+    @include adaptive(small2) {
+        max-width: 750px;
+        margin-bottom: 60px;
+    }
+    @include adaptive(small) {
+        max-width: 450px;
+        margin-bottom: 60px;
+    }
+}
+
+#stoimost h2 {
+    font-weight: 400;
+    font-size: 30px;
+    left: -500px;
+    right: 0;
+    opacity: 0;
+    width: 200px;
+    margin: 0 auto;
+    position: relative;
+    transition: all 1.2s ease-out;
+}
+
+#stoimost h2.active{
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+#stoimost h2:before {
+    content: "";
+    position: absolute;
+    text-align: center;
+    background: #3eb0f7;
+    width: 100px;
+    right: -1700px;
+    bottom: 5px;
+    height: 3px;
+    margin: 0 auto;
+    transition: all 1.2s ease-out;
+    opacity: 0;
+    @include adaptive(medium1) {
+        padding-right: 30px;
+    }
+    @include adaptive(small2) {
+        padding-right: 30px;
+    }
+    @include adaptive(small) {
+        padding-right: 30px;
+    }
+}
+
+#stoimost h2.active:before {
+    transform: translateX(-1750px);
+    opacity: 1;
+}
+
+
+.price-block {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    position: relative;
+    @include adaptive(medium1) {
+        flex-direction: column;
+    }
+    @include adaptive(small2) {
+        flex-direction: column;
+    }
+    @include adaptive(small) {
+        flex-direction: column;
+    }
+}
+
+.price-in1 {
+    position: relative;
+    width: 22.5%;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    margin: 0 15px;
+    padding: 20px 20px 0 20px;
+    transition: all 1.2s ease;
+    top: 300px;
+    opacity: 0;
+    @include adaptive(large2) {
+        padding: 20px 0 0 0;
+    }
+    @include adaptive(large1) {
+        padding: 20px 0 0 0;
+    }
+    @include adaptive(medium2) {
+        padding: 20px 0 0 0;
+        margin: 0 0 90px 0;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small) {
+        width: 92%;
+        margin-bottom: 30px;
+    }
+}
+
+.price-in1.active {
+    transform: translateY(-300px);
+    opacity: 1;
+}
+
+.price-in2 {
+    position: relative;
+    width: 22.5%;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    margin: 0 15px;
+    padding: 20px 20px 0 20px;
+    transition: all 1.2s ease;
+    transition-delay: 0.2s;
+    top: 300px;
+    opacity: 0;
+    @include adaptive(large2) {
+        padding: 20px 0 0 0;
+    }
+    @include adaptive(large1) {
+        padding: 20px 0 0 0;
+    }
+    @include adaptive(medium2) {
+        padding: 20px 0 0 0;
+        margin: 0 0 90px 0;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small) {
+        width: 92%;
+        margin-bottom: 30px;
+    }
+}
+
+.price-in2.active {
+    transform: translateY(-300px);
+    opacity: 1;
+}
+
+.price-in3 {
+    position: relative;
+    width: 22.5%;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    margin: 0 15px;
+    padding: 20px 20px 0 20px;
+    transition: all 1.2s ease;
+    transition-delay: 0.4s;
+    top: 300px;
+    opacity: 0;
+    @include adaptive(large2) {
+        padding: 20px 0px 0 0px;
+    }
+    @include adaptive(large1) {
+        padding: 20px 0 0 0;
+    }
+    @include adaptive(medium2) {
+        padding: 20px 0 0 0;
+        margin: 0;
+        margin: 0 0 30px 0;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small) {
+        width: 92%;
+        margin-bottom: 30px;
+    }
+}
+
+.price-in3.active {
+    transform: translateY(-300px);
+    opacity: 1;
+}
+
+.price-in4 {
+    position: relative;
+    width: 22.5%;
+    box-sizing: border-box;
+    border: 1px solid #d1d1d1;
+    margin: 0 15px;
+    padding: 20px 20px 0 20px;
+    transition: all 1.2s ease;
+    transition-delay: 0.6s;
+    top: 300px;
+    opacity: 0;
+    @include adaptive(large2) {
+        padding: 20px 0px 0 0px;
+    }
+    @include adaptive(large1) {
+        padding: 20px 0 0 0;
+    }
+    @include adaptive(medium2) {
+        padding: 20px 0 0 0;
+        margin: 0;
+    }
+    @include adaptive(medium1) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        margin-bottom: 30px;
+    }
+    @include adaptive(small) {
+        width: 92%;
+        margin-bottom: 30px;
+    }
+}
+
+.price-in4.active {
+    transform: translateY(-300px);
+    opacity: 1;
+}
+
+.price-pic1 {
+    background: url(../img/radio.jpg) center center / contain no-repeat;
+    padding: 35px;
+}
+
+.price-txt h3 {
+    font-weight: 400;
+    @include textStyle;
+    line-height: 45px;
+    @include adaptive(large2) {
+        font-size: 20px;
+    }
+    @include adaptive(large1) {
+        font-size: 20px;
+    }
+    @include adaptive(medium2) {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    @include adaptive(medium1) {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    @include adaptive(small2) {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    @include adaptive(small) {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+
+.price-txt-first {
+    @include textStyle;
+    font-weight: 300;
+    font-size: 16px;
+    @include adaptive(large2) {
+        font-size: 16px;
+    }
+    @include adaptive(large1) {
+       font-size: 14px;
+    }
+    @include adaptive(medium2) {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 30px 0 10px 0;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 20px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 20px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 20px;
+    }
+}
+
+.price-txt-first span {
+    line-height: 100px;
+    @include colorBlue;
+    font-size: 60px;
+    font-weight: 400;
+    position: relative;
+    @include adaptive(large2) {
+        line-height: 80px;
+    }
+    @include adaptive(large1) {
+        line-height: 80px;
+    }
+    @include adaptive(medium2) {
+        font-size: 54px;
+        line-height: 45px;
+    }
+    @include adaptive(medium1) {
+        font-size: 54px;
+        line-height: 45px;
+    }
+    @include adaptive(small2) {
+        font-size: 54px;
+        line-height: 45px;
+    }
+    @include adaptive(small) {
+        font-size: 54px;
+        line-height: 45px;
+    }
+}
+
+.price-txt-first span:before {
+    content: "от";
+    position: relative;
+    font-weight: 600;
+    font-size: 16px;
+    top: -40px;
+    left: 10px;
+    @include textStyle;
+}
+
+.price-pic2 {
+    background: url(../img/joy.jpg) center center / contain no-repeat;
+    padding: 35px;
+}
+
+.price-pic3 {
+    background: url(../img/science.jpg) center center / contain no-repeat;
+    padding: 35px;
+}
+
+.price-pic4 {
+    background: url(../img/tools.jpg) center center / contain no-repeat;
+    padding: 35px;
+}
+
+.txt-in {
+    @include adaptive(large2) {
+        padding: 0 20px;
+        margin-top: -15px;
+    }
+    @include adaptive(large1) {
+        padding: 0 20px;
+        margin-top: -15px;
+    }
+    @include adaptive(medium2) {
+        padding: 0 10px;
+    }
+}
+
+.txt-in p {
+    font-weight: 300;
+    font-size: 16px;
+    @include textStyle;
+    margin: 0 10px;
+    line-height: 40px;
+    border-bottom: 1px solid #d1d1d1;
+    @include adaptive(large2) {
+        font-size: 14px;
+    }
+    @include adaptive(large1) {
+        font-size: 14px;
+    }
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+    }
+}
+
+
+.price-txt a {
+    @include buttonRect;
+    padding: 7px 35px;
+    line-height: 80px;
+    font-size: 17px;
+    transition: 0.5s all;
+    @include adaptive(large2) {
+        line-height: 70px;
+        padding: 9px 37px;
+    }
+    @include adaptive(large1) {
+        padding: 9px 42px;
+        margin-left: -10px;
+    }
+    @include adaptive(medium2) {
+        padding: 9px 42px;
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        padding: 9px 42px;
+        font-size: 16px;
+    }
+    @include adaptive(small2) {
+        padding: 9px 42px;
+        font-size: 16px;
+    }
+    @include adaptive(small) {
+        padding: 9px 42px;
+        font-size: 16px;
+    }
+}
+
+.price-txt a:hover {
+    @include bgrBlueDarker;
+}
+
+
+
+// блог НАШИ КЛИЕНТЫ
+.clients {
+    background: #f6f6f6;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.clients-cont {
+    max-width: 900px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 60px 0;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 700px;
+    }
+    @include adaptive(large1) {
+        max-width: 500px;
+    }
+    @include adaptive(medium2) {
+        max-width: 500px;
+    }
+    @include adaptive(medium1) {
+        max-width: 700px;
+    }
+    @include adaptive(small2) {
+        max-width: 700px;
+    }
+    @include adaptive(small) {
+        max-width: 700px;
+    }
+}
+
+.clients-cont h2 {
+    left: -500px;
+    right: 0;
+    margin: 0 auto;
+    width: 300px;
+    opacity: 0;
+    font-size: 30px;
+    font-weight: 400;
+    position: relative;
+    transition: all 1.2s ease-out;
+    @include adaptive(large1) {
+        font-size: 28px;
+    }
+    @include adaptive(medium2) {
+        font-size: 28px;
+    }
+    @include adaptive(medium1) {
+        font-size: 28px;
+    }
+    @include adaptive(small2) {
+        font-size: 28px;
+    }
+    @include adaptive(small) {
+        font-size: 28px;
+    }
+}  
+
+.clients-cont h2.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+.clients-cont h2:before {
+    content: "";
+    position: absolute;
+    background-color: #3eb0f7;
+    width: 100px;
+    height: 3px;
+    // left: 0;
+    right: -1700px;
+    opacity: 0;
+    margin: 0 auto;
+    bottom: 5px;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium1) {
+        padding-right: 30px;
+    }
+    @include adaptive(small2) {
+        padding-right: 30px;
+    }
+    @include adaptive(small) {
+        padding-right: 30px;
+    }
+}
+
+.clients-cont h2.active:before {
+    transform: translateX(-1800px);
+    opacity: 1;
+}
+
+.clients-block {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    position: relative;
+    @include adaptive(large2) {
+        flex-wrap: wrap;
+    }
+    @include adaptive(medium2) {
+        justify-content: space-between;
+        margin: 15px 0;
+    }
+    @include adaptive(medium1) {
+        flex-wrap: wrap;
+        margin: 0 20px;
+    }
+    @include adaptive(small2) {
+        flex-wrap: wrap;
+        margin: 0 20px;
+    }
+    @include adaptive(small) {
+        flex-wrap: wrap;
+        margin: 40px 20px;
+    }
+}
+
+.clients-block img {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    @include adaptive(large2) {
+        width: 30%;
+    }
+    @include adaptive(large1) {
+        width: 90px;
+        height: 45px;
+    }
+    @include adaptive(medium2) {
+        width: 90px;
+        height: 45px;
+    }
+    @include adaptive(medium1) {
+        width: 200px;
+        height: 100px;
+    }
+    @include adaptive(small2) {
+        width: 200px;
+        height: 100px;
+    }
+}
+
+.clients-img1 {
+    transition: all 1.2s ease;
+    top: 150px;
+    opacity: 0;
+}
+
+.clients-img1.active {
+    transform: translateY(-150px);
+    opacity: 1;
+}
+
+.clients-img2 {
+    transition: all 1.2s ease;
+    transition-delay: 0.2s;
+    top: 150px;
+    opacity: 0;
+}
+
+.clients-img2.active {
+    transform: translateY(-150px);
+    opacity: 1;
+}
+
+.clients-img3 {
+    transition: all 1.2s ease;
+    transition-delay: 0.4s;
+    top: 150px;
+    opacity: 0;
+}
+
+.clients-img3.active {
+    transform: translateY(-150px);
+    opacity: 1;
+}
+
+.clients-img4 {
+    transition: all 1.2s ease;
+    transition-delay: 0.6s;
+    top: 150px;
+    opacity: 0;
+}
+
+.clients-img4.active {
+    transform: translateY(-150px);
+    opacity: 1;
+}
+
+
+
+// блог ОТЗЫВЫ
+#test {
+    max-width: 1140px;
+    left: 0;
+    right: 0;
+    margin: 110px auto;
+    text-align: center;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 900px;
+    }
+    @include adaptive(large1) {
+        max-width: 900px;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+    }
+    @include adaptive(medium1) {
+        width: 100%;
+    }
+    @include adaptive(small2) {
+        width: 100%;
+    }
+    @include adaptive(small) {
+        width: 100%;
+        margin: 70px auto;
+    }
+}
+
+#test h2 {
+    font-size: 30px;
+    font-weight: 400;
+    position: relative;
+    width: 300px;
+    left: -500px;
+    right: 0;
+    opacity: 0;
+    margin: 0 auto;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium2) {
+        font-size: 28px;
+    }
+    @include adaptive(medium1) {
+        font-size: 28px;
+    }
+    @include adaptive(small2) {
+        font-size: 28px;
+    }
+    @include adaptive(small) {
+        font-size: 28px;
+    }
+}    
+
+#test h2.active {
+    transform: translateX(500px);
+    opacity: 1;
+}
+
+#test h2:before {
+    content: "";
+    position: absolute;
+    background-color: #3eb0f7;
+    width: 100px;
+    height: 3px;
+    // left: 0;
+    right: -1700px;
+    margin: 0 auto;
+    bottom: 5px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium1) {
+        margin-right: 15px;
+    }
+    @include adaptive(small2) {
+        margin-right: 15px;
+    }
+    @include adaptive(small) {
+        margin-right: 15px;
+    }
+}
+
+#test h2.active:before {
+    transform: translateX(-1800px);
+    opacity: 1;
+}
+
+.slider {
+    position: relative;
+    width: 945px;
+    top: 300px;
+    left: 0;
+    right: 0;
+    padding-bottom: 30px;
+    margin: 15px auto;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(large2) {
+        width: 780px;
+        // height: 400px;
+    }
+    @include adaptive(large1) {
+        width: 780px;
+        // height: 380px;
+    }
+    @include adaptive(medium2) {
+        width: 550px;
+        // height: 435px;
+    }
+    @include adaptive(medium1) {
+        width: 90vw;
+        // height: 410px;
+    }
+    @include adaptive(small2) {
+        width: 90vw;
+        // height: 460px;
+    }
+    @include adaptive(small) {
+        width: 90vw;
+        // height: 450px;
+    }
+}
+
+.slider.active {
+    transform: translateY(-300px);
+    opacity: 1;
+}
+
+.slider .box {
+    left: 0;
+    position: relative;
+    width: 300%;
+    height: 100%;
+    font-size: 0;
+    // @include adaptive(large2) {
+    //     height: 400px;
+    // }
+    // @include adaptive(large1) {
+    //     height: 380px;
+    // }
+    // @include adaptive(medium2) {
+    //     height: 435px;
+    // }
+    // @include adaptive(medium1) {
+    //     height: 410px;
+    // }
+    // @include adaptive(small2) {
+    //     height: 460px;
+    // }
+    // @include adaptive(small) {
+    //     height: 450px;
+    // }
+}
+
+.slider .box .item {
+    width: 945px;
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    // padding: 0 15px;
+    @include adaptive(large2) {
+        width: 780px;
+        // height: 400px;
+    }
+    @include adaptive(large1) {
+        width: 780px;
+        // height: 380px;
+    }
+    @include adaptive(medium2) {
+        width: 550px;
+        // height: 435px;
+    }
+    @include adaptive(medium1) {
+        width: 90vw;
+        // height: 410px;
+    }
+    @include adaptive(small2) {
+        width: 90vw;
+        // height: 460px;
+    }
+    @include adaptive(small) {
+        width: 90vw;
+        // height: 450px;
+    }
+}
+
+.slider .box .item img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.slider .box .item p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    @include textStyle;
+    padding: 20px;
+    @include adaptive(large1) {
+        font-size: 16px;
+    }
+    @include adaptive(medium2) {
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        font-size: 16px;
+        line-height: 28px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+        line-height: 28px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+.slider .box .item blockquote {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 30px;
+    @include textStyle;
+    @include adaptive(large1) {
+        font-size: 14px;
+    }
+    @include adaptive(medium2) {
+        font-size: 14px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+    }
+}
+
+.slider .box .item span {
+    font-style: italic;
+    @include colorBlue;
+}
+
+.slider .bullet {
+    position: absolute;
+    width: 80px;
+    height: 12px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.slider .bullet .item {
+    width: 12px;
+    height: 12px;
+    background-color: #3eb0f7;
+    opacity: 0.5;
+    border-radius: 50%;
+}
+
+// .slider .bullet .item:first-child {
+//     opacity: 1;
+// }
+
+
+
+// Блог Свяжитесь с нами
+#address {
+    background: url(../img/bg.jpg) center center / cover no-repeat;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.contact-dark {
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-width {
+    max-width: 1140px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 100px 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    @include adaptive(large2) {
+        max-width: 940px;
+    }
+    @include adaptive(large1) {
+        max-width: 940px;
+    }
+    @include adaptive(medium2) {
+        max-width: 720px;
+    }
+    @include adaptive(medium1) {
+        flex-direction: column;
+    }
+    @include adaptive(small2) {
+        flex-direction: column;
+    }
+    @include adaptive(small) {
+        flex-direction: column;
+        width: 93%;
+    }
+}
+
+.contact-txt {
+    width: 40%;
+    margin-left: 10px;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    top: 400px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium1) {
+       width: 50%;
+       margin-left: 30px;
+    }
+    @include adaptive(small2) {
+        width: 50%;
+        margin-left: 30px;
+     }
+     @include adaptive(small) {
+        width: 100%;
+     }
+}
+
+.contact-txt.active {
+    transform: translateY(-400px);
+    opacity: 1;
+}
+
+.contact-txt h2 {
+    font-size: 29px;
+    @include colorWhite;
+    font-weight: 400;
+    margin-left: 5px;
+    line-height: 35px;
+    @include adaptive(medium2) {
+        font-size: 26px;
+    }
+    @include adaptive(medium1) {
+        font-size: 26px;
+        margin-left: -10px;
+    }
+    @include adaptive(small2) {
+        font-size: 26px;
+        margin-left: -10px;
+    }
+    @include adaptive(small) {
+        font-size: 26px;
+        margin-left: -10px;
+    }
+}
+
+.contact-txt h2 span {
+    @include colorBlue;
+}
+
+.contact-txt .txt-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-txt .txt-block .block-part {
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+}
+
+.contact-txt .txt-block .block-part .part-txt {
+    width: 82%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    padding-bottom: 10px;
+    @include adaptive(medium2) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+.contact-txt .txt-block .block-part .part-txt a {
+    @include colorBlue;
+    text-decoration: none;
+    font-weight: 400;
+    transition: 0.5s all;
+    @include adaptive(medium2) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    @include adaptive(medium1) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    @include adaptive(small2) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    @include adaptive(small) {
+        font-size: 14px;
+        line-height: 24px;
+    }
+}
+
+.contact-txt .txt-block .block-part .part-txt a:hover {
+    @include colorWhite;
+}
+
+.contact-txt .txt-block .block-part .part-img1 {
+    background: url(../img/location.svg) top left / contain no-repeat;
+    padding: 13px;
+}
+
+.contact-txt .txt-block .block-part .part-img2 {
+    background: url(../img/phone.svg) top left / contain no-repeat;
+    padding: 13px;
+}
+
+.contact-txt .txt-block .block-part .part-img3 {
+    background: url(../img/mail.svg) top left / contain no-repeat;
+    padding: 13px;
+}
+
+.contact-txt .txt-block .block-part .part-img4 {
+    background: url(../img/eye.svg) top left / contain no-repeat;
+    padding: 13px;
+}
+
+.contact-forms {
+    width: 58%;
+    position: relative;
+    right: 0;
+    top: 200px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium1) {
+        width: 95.5%;
+        left: 0;
+        margin: 40px auto 0 auto;
+    }
+    @include adaptive(small2) {
+        width: 95.5%;
+        left: 0;
+        margin: 40px auto 0 auto;
+    }
+    @include adaptive(small) {
+        width: 100%;
+        left: 0;
+        margin: 40px auto 0 auto;
+    }
+}
+
+.contact-forms.active {
+    transform: translateY(-200px);
+    opacity: 1;
+}
+
+.contact-forms form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-forms [type]:not([type="submit"]) {
+    padding-left: 25px;
+}
+
+textarea {
+    resize: vertical;
+    box-sizing: border-box;
+    width: 100%;
+    height: 120px;   
+    border: solid 1px #dadada;
+    padding-left: 25px; 
+    font-size: 18px;
+    margin-bottom: 15px;
+    background-color: white;
+    color: #777;
+    line-height: 2.5;
+    position: relative;
+    top: 105px;
+    opacity: 0;
+    transition: all 1.2s ease-out;
+    @include adaptive(medium2) {
+        font-size: 16px;
+    }
+    @include adaptive(medium1) {
+        font-size: 16px;
+    }
+    @include adaptive(small2) {
+        font-size: 16px;
+    }
+    @include adaptive(small) {
+        font-size: 16px;
+    }
+}
+
+textarea.active {
+    transform: translateY(-105px);
+    opacity: 1;
+}
+
+
+
+// блог Сети
+.seti {
+    width: 190px;
+    left: 0;
+    right: 0;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    @include adaptive(large2) {
+        margin-bottom: 60px;
+    }
+    @include adaptive(large2) {
+        margin-bottom: 60px;
+    }
+}
+
+.item1 { 
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid #3eb0f7;
+    transition: 1.2s all ease-out;
+    position: relative;
+    top: 60px;
+    opacity: 0;
+}
+
+.item1.active {
+    transform: translateY(-60px);
+    opacity: 1;
+}
+
+.item1:hover {
+    @include bgrBlue;
+    .item1-img {
+    background: url(../img/twitter-logo-silhouette1.svg) center center / contain no-repeat;
+    }
+}
+
+.item1-img {
+    background: url(../img/twitter-logo-silhouette.svg) center center / contain no-repeat;
+    padding: 7px;
+    margin-top: 12px;
+}
+
+.item2 {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid #3eb0f7;
+    transition: 1.2s all ease-out;
+    transition-delay: 0.2s;
+    position: relative;
+    top: 60px;
+    opacity: 0;
+}
+
+.item2.active {
+    transform: translateY(-60px);
+    opacity: 1;
+}
+
+.item2:hover {
+    @include bgrBlue;
+    .item2-img {
+    background: url(../img/facebook-letter-logo1.svg) center center / contain no-repeat;
+    }
+}
+
+.item2-img {
+    background: url(../img/facebook-letter-logo.svg) center center / contain no-repeat;
+    padding: 7px;
+    margin-top: 12px;
+    transition: 1s all;
+}
+
+.item3 {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid #3eb0f7;
+    transition: 1.2s all ease-out;
+    transition-delay: 0.4s;
+    position: relative;
+    top: 60px;
+    opacity: 0;
+}
+
+.item3.active {
+    transform: translateY(-60px);
+    opacity: 1;
+}
+
+.item3:hover {
+    @include bgrBlue;
+    .item3-img {
+    background: url(../img/google-plus-logo1.svg) center center / contain no-repeat;
+    }
+}
+
+.item3-img {
+    background: url(../img/google-plus-logo.svg) center center / contain no-repeat;
+    padding: 7px;
+    margin-top: 12px;
+}
+
+.item4 {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    border: 1px solid #3eb0f7;
+    transition: 1.2s all ease-out;
+    transition-delay: 0.6s;
+    position: relative;
+    top: 60px;
+    opacity: 0;
+}
+
+.item4.active {
+    transform: translateY(-60px);
+    opacity: 1;
+}
+
+.item4:hover {
+    @include bgrBlue;
+    .item4-img {
+    background: url(../img/instagram-logo1.svg) center center / contain no-repeat;
+    }
+}
+
+.item4-img {
+    background: url(../img/instagram-logo.svg) center center / contain no-repeat;
+    padding: 7px;
+    margin-top: 12px;
+}
